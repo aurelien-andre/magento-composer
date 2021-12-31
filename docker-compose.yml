@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+
+  composer:
+    image: aurelienandre/magento-composer:latest
+    command: install --prefer-dist --no-progress --no-interaction
+    environment:
+      - MAGENTO_USERNAME=e36a657ac370628648c3bf627f76c2e6
+      - MAGENTO_PASSWORD=f81f185e6e372c09971903e52b7f5c2e
+    volumes:
+      - ./src:/app:rw,delegated

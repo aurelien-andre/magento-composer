@@ -1,0 +1,38 @@
+#!/bin/sh
+
+isCommand() {
+
+  if [ "$1" = "sh" ]; then
+
+    return 1
+
+  fi
+
+  composer help "$1" >/dev/null 2>&1
+}
+
+if [ ! -f "/app/auth.json" ]; then
+
+  cp "/app/auth.json.sample" "/app/auth.json"
+
+  sed -i -- "s/<public-key>/$MAGENTO_USERNAME/g" "/app/auth.json"
+
+  sed -i -- "s/<private-key>/$MAGENTO_PASSWORD/g" "/app/auth.json"
+
+fi
+
+if [ "${1#-}" != "$1" ]; then
+
+  set -- tini -- composer "$@"
+
+elif [ "$1" = 'composer' ]; then
+
+  set -- tini -- "$@"
+
+elif isCommand "$1"; then
+
+  set -- tini -- composer "$@"
+
+fi
+
+exec "$@"

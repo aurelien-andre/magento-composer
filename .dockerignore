@@ -1,0 +1,9 @@
+/data
+/.git
+/.gitignore
+/.idea
+/docker-compose.yml
+/Dockerfile
+/README.md
+/src/auth.json
+/src/vendor/*
