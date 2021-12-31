@@ -19,6 +19,21 @@ Version 2
 
 ## Usage
 
+```yaml
+version: '3.8'
+
+services:
+
+  composer:
+    image: aurelienandre/magento-composer:latest
+    command: install --prefer-dist --no-progress --no-interaction
+    environment:
+      - MAGENTO_USERNAME=foo
+      - MAGENTO_PASSWORD=bar
+    volumes:
+      - ./src:/app:rw,delegated
+```
+
 ```shell
 docker-compose run --rm composer help
 ```
