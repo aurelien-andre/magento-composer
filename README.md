@@ -15,7 +15,7 @@ Version 2
 | Service           | Version       |
 | ----------------- | ------------- |
 | OS                | bullseye-slim |
-| Php               | 8.0           |
+| Php               | 7.4           |
 
 ## Usage
 
